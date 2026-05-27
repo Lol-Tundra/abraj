@@ -1,220 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abraj Singh Preet | Professional Telegram Caller</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abraj Singh Preet | Telegram Caller</title>
+
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --text-color: #f8fafc;
-            --accent-color: #0088cc; /* Telegram Blue */
-            --accent-hover: #0077b5;
-            --card-bg: #1e293b;
+        :root{
+            --bg:#111111;
+            --card:#1b1b1b;
+            --yellow:#ffd43b;
+            --yellow2:#ffb703;
+            --text:#ffffff;
+            --muted:#cfcfcf;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
         }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+        html{
+            scroll-behavior:smooth;
         }
 
-        header {
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        body{
+            background:linear-gradient(to bottom,#111,#181818,#101010);
+            color:var(--text);
+            overflow-x:hidden;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
+        /* NAVBAR */
+
+        header{
+            width:100%;
+            padding:20px 7%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:fixed;
+            top:0;
+            z-index:1000;
+            backdrop-filter:blur(10px);
+            background:rgba(0,0,0,0.45);
+            border-bottom:1px solid rgba(255,255,255,0.08);
         }
 
-        .cta-btn {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
+        .logo{
+            font-size:2rem;
+            font-weight:900;
+            color:var(--yellow);
+            letter-spacing:1px;
         }
 
-        .cta-btn:hover {
-            background-color: var(--accent-hover);
+        .cta-btn{
+            text-decoration:none;
+            background:linear-gradient(45deg,var(--yellow),var(--yellow2));
+            color:black;
+            padding:14px 26px;
+            border-radius:999px;
+            font-weight:800;
+            transition:0.3s;
+            box-shadow:0 0 25px rgba(255,212,59,0.35);
         }
 
-        .hero {
-            text-align: center;
-            padding: 6rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+        .cta-btn:hover{
+            transform:translateY(-3px) scale(1.03);
+            box-shadow:0 0 35px rgba(255,212,59,0.6);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+        /* HERO */
+
+        .hero{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            padding:140px 7% 80px;
+            position:relative;
+            overflow:hidden;
         }
 
-        .hero h1 span {
-            color: var(--accent-color);
+        .hero::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:url("image(7).png") center/cover;
+            opacity:0.18;
+            filter:blur(2px);
+            transform:scale(1.1);
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            margin-bottom: 2rem;
+        .hero-content{
+            position:relative;
+            z-index:2;
+            max-width:950px;
         }
 
-        .services {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero h1{
+            font-size:5rem;
+            line-height:1.05;
+            margin-bottom:20px;
+            font-weight:900;
         }
 
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+        .hero h1 span{
+            color:var(--yellow);
+            text-shadow:0 0 20px rgba(255,212,59,0.5);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1-fr));
-            gap: 2rem;
+        .hero p{
+            font-size:1.25rem;
+            color:var(--muted);
+            margin-bottom:35px;
+            line-height:1.8;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: transform 0.3s ease;
+        .hero-img{
+            margin-top:40px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .hero-img img{
+            width:280px;
+            border-radius:24px;
+            border:4px solid var(--yellow);
+            box-shadow:0 0 50px rgba(255,212,59,0.25);
         }
 
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
+        /* SERVICES */
+
+        .services{
+            padding:100px 7%;
         }
 
-        .stats {
-            background-color: var(--card-bg);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 4rem 0;
+        .section-title{
+            text-align:center;
+            font-size:3rem;
+            margin-bottom:70px;
+            color:var(--yellow);
+            font-weight:900;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1-fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
         }
 
-        .stat-item h4 {
-            font-size: 3rem;
-            color: var(--accent-color);
+        .card{
+            background:var(--card);
+            border-radius:24px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,0.08);
+            transition:0.35s;
+            position:relative;
         }
 
-        .contact-section {
-            text-align: center;
-            padding: 6rem 2rem;
-            max-width: 600px;
-            margin: 0 auto;
+        .card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 35px rgba(255,212,59,0.18);
         }
 
-        .contact-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            border-top: 1px solid #334155;
+        .card-content{
+            padding:28px;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .grid { grid-template-columns: 1fr; }
+        .card h3{
+            color:var(--yellow);
+            margin-bottom:15px;
+            font-size:1.5rem;
         }
+
+        .card p{
+            color:#d8d8d8;
+            line-height:1.7;
+        }
+
+        /* STATS */
+
+        .stats{
+            padding:90px 7%;
+            background:linear-gradient(90deg,#161616,#202020,#161616);
+        }
+
+        .stats-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:30px;
+        }
+
+        .stat{
+            background:#1f1f1f;
+            padding:40px 20px;
+            text-align:center;
+            border-radius:22px;
+            border:1px solid rgba(255,255,255,0.07);
+        }
+
+        .stat h2{
+            color:var(--yellow);
+            font-size:3.5rem;
+            margin-bottom:10px;
+        }
+
+        .stat p{
+            color:#d7d7d7;
+            font-size:1.1rem;
+        }
+
+        /* FOOD SECTION */
+
+        .food-section{
+            padding:100px 7%;
+            text-align:center;
+        }
+
+        .food-box{
+            max-width:850px;
+            margin:auto;
+            background:#1a1a1a;
+            border-radius:30px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .food-box img{
+            width:100%;
+            height:350px;
+            object-fit:cover;
+        }
+
+        .food-box-content{
+            padding:40px;
+        }
+
+        .food-box h2{
+            color:var(--yellow);
+            margin-bottom:18px;
+            font-size:2.5rem;
+        }
+
+        .food-box p{
+            color:#d2d2d2;
+            line-height:1.8;
+            font-size:1.1rem;
+        }
+
+        /* CONTACT */
+
+        .contact{
+            padding:120px 7%;
+            text-align:center;
+        }
+
+        .contact h2{
+            font-size:3.5rem;
+            color:var(--yellow);
+            margin-bottom:20px;
+        }
+
+        .contact p{
+            max-width:750px;
+            margin:auto;
+            color:#d6d6d6;
+            line-height:1.8;
+            margin-bottom:40px;
+            font-size:1.1rem;
+        }
+
+        footer{
+            text-align:center;
+            padding:30px;
+            border-top:1px solid rgba(255,255,255,0.08);
+            color:#9c9c9c;
+        }
+
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size:3rem;
+            }
+
+            .section-title{
+                font-size:2.2rem;
+            }
+
+            .contact h2{
+                font-size:2.5rem;
+            }
+
+            .food-box img{
+                height:250px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
     <header>
-        <div class="logo">ASP Portfolio</div>
-        <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="cta-btn" target="_blank">Book a Call</a>
+        <div class="logo">ASP</div>
+
+        <a href="https://t.me/YOUR_TELEGRAM_USERNAME"
+           target="_blank"
+           class="cta-btn">
+            Book a Call
+        </a>
     </header>
 
+    <!-- HERO -->
+
     <section class="hero">
-        <h1>Hi, I'm <span>Abraj Singh Preet</span></h1>
-        <p>A high-energy, results-driven Telegram Caller. I specialize in managing Voice Chats (VCs), driving community engagement, hosting AMAs, and converting leads into loyal community members.</p>
-        <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="cta-btn" target="_blank">Let's Connect on Telegram</a>
+
+        <div class="hero-content">
+
+            <h1>
+                Abraj Singh Preet
+                <br>
+                <span>Professional Telegram Caller</span>
+            </h1>
+
+            <p>
+                High-energy VC hosting, AMA moderation,
+                community engagement, and Telegram growth.
+                I keep your audience active, entertained,
+                and fully invested in your project.
+            </p>
+
+            <a href="https://t.me/YOUR_TELEGRAM_USERNAME"
+               target="_blank"
+               class="cta-btn">
+                Connect on Telegram
+            </a>
+
+            <div class="hero-img">
+                <img src="image(6).png" alt="">
+            </div>
+
+        </div>
+
     </section>
+
+    <!-- SERVICES -->
 
     <section class="services">
-        <h2>What I Do Best</h2>
+
+        <h2 class="section-title">
+            What I Do Best
+        </h2>
+
         <div class="grid">
+
             <div class="card">
-                <h3>Voice Chat (VC) Hosting</h3>
-                <p>Keeping your community active, hyped, and informed. I manage the mic smoothly, handle questions professionally, and maintain a high-vibe atmosphere.</p>
+                <img src="image(7).png" alt="">
+
+                <div class="card-content">
+                    <h3>Voice Chat Hosting</h3>
+
+                    <p>
+                        Professional Telegram VC hosting with
+                        strong communication, hype generation,
+                        audience interaction, and smooth moderation.
+                    </p>
+                </div>
             </div>
+
             <div class="card">
-                <h3>AMA Moderation</h3>
-                <p>Structuring and hosting Ask-Me-Anything sessions with project founders, partners, or influencers to build trust and transparency.</p>
+                <img src="image(6).png" alt="">
+
+                <div class="card-content">
+                    <h3>AMA Moderation</h3>
+
+                    <p>
+                        Organised AMA sessions with project founders,
+                        partners, and influencers that keep the
+                        community informed and engaged.
+                    </p>
+                </div>
             </div>
+
             <div class="card">
-                <h3>Community Growth</h3>
-                <p>Bridging the gap between the project team and the community. I turn passive listeners into active participants and investors.</p>
+                <img src="image(8).png" alt="">
+
+                <div class="card-content">
+                    <h3>Community Energy</h3>
+
+                    <p>
+                        Bringing excitement and personality into
+                        your Telegram communities while keeping
+                        conversations active and entertaining.
+                    </p>
+                </div>
             </div>
+
         </div>
+
     </section>
+
+    <!-- STATS -->
 
     <section class="stats">
+
         <div class="stats-grid">
-            <div class="stat-item">
-                <h4>50+</h4>
-                <p>Successful VCs Hosted</p>
+
+            <div class="stat">
+                <h2>50+</h2>
+                <p>Voice Chats Hosted</p>
             </div>
-            <div class="stat-item">
-                <h4>100%</h4>
+
+            <div class="stat">
+                <h2>24/7</h2>
+                <p>Availability</p>
+            </div>
+
+            <div class="stat">
+                <h2>100%</h2>
                 <p>Professional Delivery</p>
             </div>
-            <div class="stat-item">
-                <h4>24/7</h4>
-                <p>Flexible Availability</p>
-            </div>
+
         </div>
+
     </section>
 
-    <section class="contact-section">
-        <h2>Ready to Hype Your Project?</h2>
-        <p style="margin-bottom: 2rem; color: #94a3b8;">Hire an expert who knows how to command the room and deliver clear, engaging communication.</p>
-        <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="cta-btn" style="font-size: 1.2rem; padding: 1rem 2rem;" target="_blank">Contact @YOUR_TELEGRAM_USERNAME</a>
+    <!-- FOOD SECTION -->
+
+    <section class="food-section">
+
+        <div class="food-box">
+
+            <img src="image(8).png" alt="">
+
+            <div class="food-box-content">
+
+                <h2>Fuelled By Curry & Chaos</h2>
+
+                <p>
+                    Bringing high energy, humour, and unforgettable
+                    community moments into every VC. Whether it's
+                    hyping a launch, moderating an AMA, or keeping
+                    your Telegram active late at night — I keep
+                    the room alive.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact">
+
+        <h2>
+            Ready To Hype Your Project?
+        </h2>
+
+        <p>
+            If you need somebody who can confidently lead Telegram
+            voice chats, energise communities, and maintain
+            engagement throughout your events, let's work together.
+        </p>
+
+        <a href="https://t.me/YOUR_TELEGRAM_USERNAME"
+           target="_blank"
+           class="cta-btn">
+            Contact @YOUR_TELEGRAM_USERNAME
+        </a>
+
     </section>
 
     <footer>
-        <p>&copy; 2026 Abraj Singh Preet. All rights reserved.</p>
+        © 2026 Abraj Singh Preet — All Rights Reserved
     </footer>
 
 </body>
